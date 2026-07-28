@@ -4,23 +4,6 @@
 	"manifestVersion": 2,
 	"description": "Fetches curated best-release torrents from SeaDex",
     "id": "hayase.extension.seadex",
-    "version": "0.0.2",
-    "type": "torrent",
-    "accuracy": "high",
-    "ratio": 0,
-    "media": "sub",
-    "languages": [
-      "US"
-    ],
-    "icon": "https://releases.moe/favicon.png",
-    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/seadex.js"
-  },
-  {
-    "name": "AnimeTosho",
-	"manifestVersion": 2,
-    "id": "hayase.extension.animetosho",
-	"description": "Fetches torrents from AnimeTosho",
     "version": "0.0.3",
     "type": "torrent",
     "accuracy": "high",
@@ -29,7 +12,26 @@
     "languages": [
       "US"
     ],
+    "icon": "https://releases.moe/favicon.png",
+    "url": "aHR0cHM6Ly9yZWxlYXNlcy5tb2U=",
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/seadex.js"
+  },
+  {
+    "name": "AnimeTosho",
+	"manifestVersion": 2,
+    "id": "hayase.extension.animetosho",
+	"description": "Fetches torrents from AnimeTosho",
+    "version": "0.0.4",
+    "type": "torrent",
+    "accuracy": "high",
+    "ratio": 0,
+    "media": "sub",
+    "languages": [
+      "US"
+    ],
     "icon": "https://animetosho.org/inc/favicon.ico",
+    "url": "aHR0cHM6Ly9mZWVkLmFuaW1ldG9zaG8ub3Jn",
     "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
     "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/animetosho.js"
   },
@@ -38,7 +40,7 @@
 	"manifestVersion": 2,
     "id": "hayase.extension.nyaa",
 	"description": "Fetches torrents from nyaa.si",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
@@ -47,6 +49,7 @@
       "ALL"
     ],
     "icon": "https://nyaa.si/static/favicon.png",
+    "url": "aHR0cHM6Ly9ueWFhLnNp",
     "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
     "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/nyaa.js"
   },
@@ -54,7 +57,7 @@
     "id": "hayase.extension.piratebay",
 	"manifestVersion": 2,
     "name": "PirateBay",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "type": "torrent",
     "accuracy": "low",
     "media": "both",
@@ -63,6 +66,7 @@
     ],
     "description": "Fetches torrents from The Pirate Bay via apibay.org",
     "icon": "https://upload.wikimedia.org/wikipedia/en/3/36/The_Pirate_Bay_logo.svg",
+    "url": "aHR0cHM6Ly9hcGliYXkub3Jn",
     "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
     "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/piratebay.js"
   },
@@ -71,7 +75,7 @@
 	"manifestVersion": 2,
     "id": "hayase.extension.subsplease",
 	"description": "Fetches torrents from SubsPlease",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
@@ -80,6 +84,7 @@
       "US"
     ],
     "icon": "https://subsplease.org/favicon.ico",
+    "url": "aHR0cHM6Ly9zdWJzcGxlYXNlLm9yZw==",
     "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
     "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/subsplease.js"
   },
@@ -88,7 +93,7 @@
 	"manifestVersion": 2,
     "id": "hayase.extension.tokyotosho",
 	"description": "Fetches torrents from TokyoTosho",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "torrent",
     "accuracy": "medium",
     "ratio": 0,
@@ -97,6 +102,7 @@
       "US"
     ],
     "icon": "https://www.tokyotosho.info/favicon.ico",
+    "url": "aHR0cHM6Ly93d3cudG9reW90b3Noby5pbmZv",
     "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
     "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/tokyotosho.js"
   }
