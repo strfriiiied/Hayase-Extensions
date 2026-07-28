@@ -2,7 +2,7 @@ export default new class TokyoTosho {
   base = 'https://www.tokyotosho.info/rss.php'
 
   /** @type {import('./').SearchFunction} */
-  async single({ titles, episode }) {
+  async single({ titles, episode, fetch }) {
     if (!titles?.length) return []
 
     const query = titles[0] + (episode ? ` ${episode}` : '')

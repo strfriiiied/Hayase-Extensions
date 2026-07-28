@@ -34,7 +34,7 @@ export default new class Tosho {
   }
 
   /** @type {import('./').SearchFunction} */
-  async single ({ anidbEid, resolution, exclusions }) {
+  async single ({ anidbEid, resolution, exclusions, fetch }) {
     if (!anidbEid) throw new Error('No anidbEid provided')
     const query = this.buildQuery({ resolution, exclusions })
     const res = await fetch(this.url + '?eid=' + anidbEid + query)
@@ -47,7 +47,7 @@ export default new class Tosho {
   }
 
   /** @type {import('./').SearchFunction} */
-  async batch ({ anidbAid, resolution, episodeCount, exclusions }) {
+  async batch ({ anidbAid, resolution, episodeCount, exclusions, fetch }) {
     if (!anidbAid) throw new Error('No anidbAid provided')
     if (episodeCount == null) throw new Error('No episodeCount provided')
     const query = this.buildQuery({ resolution, exclusions })
@@ -60,7 +60,7 @@ export default new class Tosho {
   }
 
   /** @type {import('./').SearchFunction} */
-  async movie ({ anidbAid, resolution, exclusions }) {
+  async movie ({ anidbAid, resolution, exclusions, fetch }) {
     if (!anidbAid) throw new Error('No anidbAid provided')
     const query = this.buildQuery({ resolution, exclusions })
     const res = await fetch(this.url + '?aid=' + anidbAid + query)
