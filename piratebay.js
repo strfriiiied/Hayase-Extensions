@@ -2,7 +2,7 @@ export default new class PirateBay {
   base = 'https://apibay.org/q.php'
 
   /** @type {import('./').SearchFunction} */
-  async single ({ titles, episode }) {
+  async single ({ titles, episode, fetch }) {
     if (!titles?.length) return []
 
     const query = this.buildQuery(titles[0], episode)

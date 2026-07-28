@@ -2,7 +2,7 @@ export default new class Nyaa {
   base = 'https://nyaa.si/?page=rss'
 
   /** @type {import('./').SearchFunction} */
-  async single ({ titles, episode }) {
+  async single ({ titles, episode, fetch }) {
     if (!titles?.length) return []
 
     const query = this.buildQuery(titles[0], episode)
