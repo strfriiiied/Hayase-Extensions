@@ -1,6 +1,8 @@
 [
   {
     "name": "Seadex",
+	"manifestVersion": 2,
+	"description": "Fetches curated best-release torrents from SeaDex",
     "id": "hayase.extension.seadex",
     "version": "0.0.2",
     "type": "torrent",
@@ -11,12 +13,14 @@
       "US"
     ],
     "icon": "https://releases.moe/favicon.png",
-    "update": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/seadex.js"
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/seadex.js"
   },
   {
     "name": "AnimeTosho",
+	"manifestVersion": 2,
     "id": "hayase.extension.animetosho",
+	"description": "Fetches torrents from AnimeTosho",
     "version": "0.0.3",
     "type": "torrent",
     "accuracy": "high",
@@ -26,26 +30,29 @@
       "US"
     ],
     "icon": "https://animetosho.org/inc/favicon.ico",
-    "update": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/animetosho.js"
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/animetosho.js"
   },
   {
     "name": "Nyaa",
+	"manifestVersion": 2,
     "id": "hayase.extension.nyaa",
+	"description": "Fetches torrents from nyaa.si",
     "version": "1.0.0",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
     "languages": [
-      "all"
+      "ALL"
     ],
     "icon": "https://nyaa.si/static/favicon.png",
-    "update": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/nyaa.js"
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/nyaa.js"
   },
   {
     "id": "hayase.extension.piratebay",
+	"manifestVersion": 2,
     "name": "PirateBay",
     "version": "0.0.11",
     "type": "torrent",
@@ -56,12 +63,14 @@
     ],
     "description": "Fetches torrents from The Pirate Bay via Torrents-API",
     "icon": "https://upload.wikimedia.org/wikipedia/en/3/36/The_Pirate_Bay_logo.svg",
-    "update": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/piratebay.js"
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/piratebay.js"
   },
   {
     "name": "SubsPlease",
+	"manifestVersion": 2,
     "id": "hayase.extension.subsplease",
+	"description": "Fetches torrents from SubsPlease",
     "version": "1.0.0",
     "type": "torrent",
     "accuracy": "high",
@@ -71,12 +80,14 @@
       "US"
     ],
     "icon": "https://subsplease.org/favicon.ico",
-    "update": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/subsplease.js"
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/subsplease.js"
   },
   {
     "name": "TokyoTosho",
+	"manifestVersion": 2,
     "id": "hayase.extension.tokyotosho",
+	"description": "Fetches torrents from TokyoTosho",
     "version": "1.0.0",
     "type": "torrent",
     "accuracy": "medium",
@@ -86,7 +97,7 @@
       "US"
     ],
     "icon": "https://www.tokyotosho.info/favicon.ico",
-    "update": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/index.json",
-    "code": "https://raw.githubusercontent.com/LetMeGetAByte/Hayase-Extensions/main/tokyotosho.js"
+    "update": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/index.json",
+    "code": "https://raw.githubusercontent.com/strfriiiied/Hayase-Extensions/main/tokyotosho.js"
   }
 ]
