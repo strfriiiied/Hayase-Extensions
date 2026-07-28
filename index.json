@@ -1,6 +1,7 @@
 [
   {
     "name": "Seadex",
+	"manifestVersion": 2,
 	"description": "Fetches curated best-release torrents from SeaDex",
     "id": "hayase.extension.seadex",
     "version": "0.0.2",
@@ -17,6 +18,7 @@
   },
   {
     "name": "AnimeTosho",
+	"manifestVersion": 2,
     "id": "hayase.extension.animetosho",
 	"description": "Fetches torrents from AnimeTosho",
     "version": "0.0.3",
@@ -33,6 +35,7 @@
   },
   {
     "name": "Nyaa",
+	"manifestVersion": 2,
     "id": "hayase.extension.nyaa",
 	"description": "Fetches torrents from nyaa.si",
     "version": "1.0.1",
@@ -49,6 +52,7 @@
   },
   {
     "id": "hayase.extension.piratebay",
+	"manifestVersion": 2,
     "name": "PirateBay",
     "version": "0.0.12",
     "type": "torrent",
@@ -64,6 +68,7 @@
   },
   {
     "name": "SubsPlease",
+	"manifestVersion": 2,
     "id": "hayase.extension.subsplease",
 	"description": "Fetches torrents from SubsPlease",
     "version": "1.0.0",
@@ -80,6 +85,7 @@
   },
   {
     "name": "TokyoTosho",
+	"manifestVersion": 2,
     "id": "hayase.extension.tokyotosho",
 	"description": "Fetches torrents from TokyoTosho",
     "version": "1.0.0",
