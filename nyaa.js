@@ -1,52 +1,65 @@
 export default new class Nyaa {
-  base = 'https://torrent-search-api-livid.vercel.app/api/nyaasi/'
+  base = 'https://nyaa.si/?page=rss'
 
   /** @type {import('./').SearchFunction} */
-  async single({ titles, episode }) {
+  async single ({ titles, episode }) {
     if (!titles?.length) return []
 
     const query = this.buildQuery(titles[0], episode)
-    const url = `${this.base}${encodeURIComponent(query)}`
+    const url = `${this.base}&q=${encodeURIComponent(query)}`
 
     const res = await fetch(url)
-    const data = await res.json()
+    const text = await res.text()
 
-    if (!Array.isArray(data)) return []
-
-    return this.map(data)
+    return this.parseRSS(text)
   }
 
   /** @type {import('./').SearchFunction} */
   batch = this.single
   movie = this.single
 
-  buildQuery(title, episode) {
+  buildQuery (title, episode) {
     let query = title.replace(/[^\w\s-]/g, ' ').trim()
     if (episode) query += ` ${episode.toString().padStart(2, '0')}`
     return query
   }
 
-  map(data) {
-    return data.map(item => {
-      const hash = item.Magnet?.match(/btih:([a-fA-F0-9]+)/)?.[1] || ''
+  parseRSS (text) {
+    const results = []
+    const itemRegex = /<item>([\s\S]*?)<\/item>/g
 
-      return {
-        title: item.Name || '',
-        link: item.Magnet || '',
+    let match
+    while ((match = itemRegex.exec(text)) !== null) {
+      const item = match[1]
+
+      const title = item.match(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/)?.[1]
+      const link = item.match(/<link>(.*?)<\/link>/)?.[1]
+      const hash = item.match(/<nyaa:infoHash>(.*?)<\/nyaa:infoHash>/)?.[1]
+      if (!title || !link || !hash) continue
+
+      const seeders = item.match(/<nyaa:seeders>(.*?)<\/nyaa:seeders>/)?.[1]
+      const leechers = item.match(/<nyaa:leechers>(.*?)<\/nyaa:leechers>/)?.[1]
+      const downloads = item.match(/<nyaa:downloads>(.*?)<\/nyaa:downloads>/)?.[1]
+      const size = item.match(/<nyaa:size>(.*?)<\/nyaa:size>/)?.[1]
+      const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1]
+
+      results.push({
+        title,
+        link,
         hash,
-        seeders: parseInt(item.Seeders || '0'),
-        leechers: parseInt(item.Leechers || '0'),
-        downloads: parseInt(item.Downloads || '0'),
-        size: this.parseSize(item.Size),
-        date: new Date(item.DateUploaded),
-        verified: false,
+        seeders: parseInt(seeders || '0'),
+        leechers: parseInt(leechers || '0'),
+        downloads: parseInt(downloads || '0'),
+        size: this.parseSize(size || ''),
+        date: pubDate ? new Date(pubDate) : new Date(),
         type: 'alt',
         accuracy: 'medium'
-      }
-    })
+      })
+    }
+    return results
   }
 
-  parseSize(sizeStr) {
+  parseSize (sizeStr) {
     const match = sizeStr.match(/([\d.]+)\s*(KiB|MiB|GiB|KB|MB|GB)/i)
     if (!match) return 0
 
@@ -64,9 +77,9 @@ export default new class Nyaa {
     }
   }
 
-  async test() {
+  async test () {
     try {
-      const res = await fetch(this.base + 'one piece')
+      const res = await fetch(this.base + '&q=one+piece')
       return res.ok
     } catch {
       return false

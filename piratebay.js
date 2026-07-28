@@ -1,12 +1,12 @@
 export default new class PirateBay {
-  base = 'https://torrent-search-api-livid.vercel.app/api/piratebay/'
+  base = 'https://apibay.org/q.php'
 
   /** @type {import('./').SearchFunction} */
-  async single({ titles, episode }) {
+  async single ({ titles, episode }) {
     if (!titles?.length) return []
 
     const query = this.buildQuery(titles[0], episode)
-    const url = `${this.base}${encodeURIComponent(query)}`
+    const url = `${this.base}?q=${encodeURIComponent(query)}`
 
     const res = await fetch(url)
     const data = await res.json()
@@ -20,53 +20,32 @@ export default new class PirateBay {
   batch = this.single
   movie = this.single
 
-  buildQuery(title, episode) {
+  buildQuery (title, episode) {
     let query = title.replace(/[^\w\s-]/g, ' ').trim()
     if (episode) query += ` ${episode.toString().padStart(2, '0')}`
     return query
   }
 
-  map(data) {
-    return data.map(item => {
-      const hash = item.Magnet?.match(/btih:([a-fA-F0-9]+)/)?.[1] || ''
-
+  map (data) {
+    return data.filter(item => item.id !== '0' && item.info_hash && !/^0+$/.test(item.info_hash)).map(item => {
       return {
-        title: item.Name || '',
-        link: item.Magnet || '',
-        hash,
-        seeders: parseInt(item.Seeders || '0'),
-        leechers: parseInt(item.Leechers || '0'),
-        downloads: parseInt(item.Downloads || '0'),
-        size: this.parseSize(item.Size),
-        date: new Date(item.DateUploaded),
-        verified: false,
+        title: item.name || '',
+        link: `magnet:?xt=urn:btih:${item.info_hash}`,
+        hash: item.info_hash,
+        seeders: parseInt(item.seeders || '0'),
+        leechers: parseInt(item.leechers || '0'),
+        downloads: 0,
+        size: parseInt(item.size || '0'),
+        date: new Date(parseInt(item.added || '0') * 1000),
         type: 'alt',
-        accuracy: 'medium'
+        accuracy: 'low'
       }
     })
   }
 
-  parseSize(sizeStr) {
-    const match = sizeStr.match(/([\d.]+)\s*(KiB|MiB|GiB|KB|MB|GB)/i)
-    if (!match) return 0
-
-    const value = parseFloat(match[1])
-    const unit = match[2].toUpperCase()
-
-    switch (unit) {
-      case 'KIB':
-      case 'KB': return value * 1024
-      case 'MIB':
-      case 'MB': return value * 1024 * 1024
-      case 'GIB':
-      case 'GB': return value * 1024 * 1024 * 1024
-      default: return 0
-    }
-  }
-
-  async test() {
+  async test () {
     try {
-      const res = await fetch(this.base + 'one piece')
+      const res = await fetch(this.base + '?q=one+piece')
       return res.ok
     } catch {
       return false
